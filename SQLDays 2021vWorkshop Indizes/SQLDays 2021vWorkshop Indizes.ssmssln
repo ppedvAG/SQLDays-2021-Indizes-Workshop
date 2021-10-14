@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 18.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "SQLDays 2021vWorkshop Indizes", "SQLDays 2021vWorkshop Indizes\SQLDays 2021vWorkshop Indizes.ssmssqlproj", "{45320E2B-3AAE-4FCE-B80A-9B1F87BD14F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45320E2B-3AAE-4FCE-B80A-9B1F87BD14F5}.Default|Default.ActiveCfg = Default
+		{A16D6D87-8FEA-4F2C-A7A8-5DB2EEE469CC}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3DAE78C-C037-4850-86D1-58B73E32EE53}
+	EndGlobalSection
+EndGlobal
