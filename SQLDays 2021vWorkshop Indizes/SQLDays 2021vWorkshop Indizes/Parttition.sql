@@ -1,3 +1,15 @@
+
+--Mit Hilfe von Partition lassen sich Tabellen in pyhsik. kleine Häppchen teilen
+--idee: ein scan muss nicht mehr alles durchlesen, sondern nur den einen Teil
+--oder auch: mehrere Lesezustände können auf sep Volumes paralell arbeiten
+
+--auch Indizes können partitioniert werden
+--im Prinzip, könnte man auch jede Zustand einer Spalte mit gefilterten Indizes abdecken
+-- die Partition deckt autmatisch jeden Zustand ab
+--dagegen, kann ein gefilteter IX auch nur einen Zustand filtern..falls dies 
+--notwenig bzw gewünscht sein sollte
+
+
 create partition function fzahl(int)
 as
 range left for values(100,200)

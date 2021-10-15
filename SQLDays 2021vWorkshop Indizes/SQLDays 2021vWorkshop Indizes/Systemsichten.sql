@@ -1,5 +1,12 @@
 --Columnstore
 
+--indexid = 0 HEAP
+--          1 CL IX
+--         > 1  N CL IX
+
+
+
+select * from sys.dm_db_index_usage_stats
 
 select * from sys.dm_db_column_store_row_group_physical_stats
 
@@ -16,6 +23,7 @@ select object_name(i.object_id) as TableName
  where objectproperty(i.object_id, 'IsUserTable') = 1
 go
 
+--Brent Ozar... sp_blitzindex
 
 --Fehlende Indizes
 
@@ -168,3 +176,17 @@ select db_name(d.database_id) as db_name
        inner join sys.dm_db_missing_index_details as d
                on g.index_handle = d.index_handle
  where d.database_id > 4  -- Nur Benutzerdatenbanken
+
+
+ -----------Index und Tabellen/Heaps beobachten
+ dbcc showcontig('ku1') --40000
+
+select * from sys.dm_db_index_physical_stats
+	(db_id(),
+	 object_id('ku1'),
+	 NULL,
+	 NULL,
+	 'detailed')
+
+	--Heaps können forward_record_Counts haben
+	--zB durch Hinzufügen von neuen Spalten
