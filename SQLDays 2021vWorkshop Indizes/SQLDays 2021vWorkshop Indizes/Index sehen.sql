@@ -43,6 +43,9 @@ insert into sp_DBCCINDIZES
 exec ('DBCC IND (Nwindbig, customers, 1)') --1 = IndexID
 go
 
+
+--NUN SUCHE NACH WURZELKNOTEN
+
 select * from sp_dbccindizes
 where indexlevel=0
 order by IndexLevel desc, PrevPagePID
@@ -51,6 +54,7 @@ select * from sp_dbccindizes
 where indexlevel=1
 order by IndexLevel desc, PrevPagePID
 
+--Ist nur eine Seite im Ergebnis, dann handelt es sich um den Wurzelknoten
 select * from sp_dbccindizes
 where indexlevel=2
 order by IndexLevel desc, PrevPagePID --40259--> 341 Seiten--> 65 Seiten
@@ -60,6 +64,9 @@ order by IndexLevel desc, PrevPagePID --40259--> 341 Seiten--> 65 Seiten
 
 SET STATISTICS IO, time on		 
 --otaaf
+
+
+
 select  * from customers where customerid like '%otaaf%' --SCAN!!!
 
 select  * from customers where customerid like 'otaaf' --SCAN--3 Seiten
@@ -68,37 +75,14 @@ DBCC PAGE (NwindBig, 1, 502368, 3) --alle von a bis z aber nur 341 von 2 mio
 
 DBCC PAGE (NwindBig, 1, 544728, 3)---a lle von oropi bis otm.. aber nur ein teil
 
-DBCC TRACEON (3604)
+DBCC TRACEON (3604) --um die letzte Seiten (Datenseite) zu sehen, benötigen wir für den
+--Befehl dbcc eine Traceflag... Seit SQL 2019 geht das auch einfacher..
 
 DBCC PAGE (NwindBig, 1, 542597, 3)
 
 
-select 
-
-
-select * from customers
-
-insert into customers (customerid, companyname) values ('ppedv', 'ppedv AG')
-
-select * from orders
-
-select * from best
-
-
-select * from customers
 
 
 
-
-
-
-select * from customers where left (customerid,1)='a'
-select * from customers where customerid like 'a%'
-
-
-
-
-
-DBCC PAGE (NwindBig, 1, 548432, 3)
 
 

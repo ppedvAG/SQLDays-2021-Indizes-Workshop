@@ -1,5 +1,8 @@
 /*
 
+
+Welche Indizes gibt es denn...?
+
 Clustered Index gruppierter IX x
 NON CL IX   nicht gr IX  x
 -------------------------------------
@@ -9,10 +12,10 @@ IX mit eingschlossenen Spalten  x
 gefilterter IX x 
 part. IX  x
 ind. Sicht x 
-reale hypothetische IX  Tool
+reale hypothetische IX  Tool (DatabaseTuningAdvisor)
 abdeckender IX  x
 -------------------------------------
-Columnstore IX (NON CL , CL)
+Columnstore IX (NON CL , CL) x
 seit SQL 2016 SP1 auch in STD oder SSEX
 
 
@@ -23,6 +26,8 @@ seit SQL 2016 SP1 auch in STD oder SSEX
 
 --Eine Tabelle ohne CL IX = HEAP  "Sauhaufen"
 
+--Siehe Folien!!!
+
 --> TABLE SCAN  Suche von A bis Z
 
 
@@ -30,12 +35,14 @@ seit SQL 2016 SP1 auch in STD oder SSEX
 --> IX SCAN
 
 
---> SEEK aber das beste!
+--> SEEK aber das beste!...sofvern der Plan stimmt
 
 
 
 --GR IX = TABELLE .. der HEAP ist weg
 --nur 1 mal pro Tabelle
+--GR IX ist Tabelle in sortierter Form
+--kann es nur einmal pro Tabelle geben
 
 --N GR IX--- ca 1000 mal pro Tabelle
 
@@ -46,12 +53,13 @@ seit SQL 2016 SP1 auch in STD oder SSEX
 
 --GR IX nur einmal..
 --ist gut bei Bereichsabfragen, aber nat. auch für ID Werte 
---
+
 
 select * from Orders
 
 
 create table t2(id int) on HOT
+
 
 
 

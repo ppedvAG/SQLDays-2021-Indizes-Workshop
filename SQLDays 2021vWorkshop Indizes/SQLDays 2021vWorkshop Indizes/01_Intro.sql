@@ -15,6 +15,9 @@ andreasr@ppedv.de
 
 -----------------------------------------
 
+--Indizes haben an sehr vielen Stellen Ihre Finger drin...------
+--Locks, architektionische Struktur , Performance, Performanceprobleme
+
 --Indizes beschleunigen nicht nur Abfragen (oder auch verlangsamen)
 --sondern sind auch in Locks involviert...
 Blocks

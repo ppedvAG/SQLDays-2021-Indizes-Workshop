@@ -34,3 +34,11 @@ ALTER partition function fzahl() split range (5000)
 alter partition function fzahl() merge range (100)
 
 
+--Nun sind die Daten in verschiedene Partitionen unterteilt...
+--die Locks können nun auch auf Partition angelegt werden
+--und Indizes können auf ein part Schema gelegt werden
+--Indizes--Eigenschaften--Speicher-- Schema wählen
+
+--Wir der Index wie Tabelle mittel derseleben Spalte partitioniert,
+--so spricht man von einer ausgerichteten Partition
+

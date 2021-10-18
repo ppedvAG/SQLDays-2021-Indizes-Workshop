@@ -162,6 +162,9 @@ group by lastname
 
 --CLIS --ohne Spaltennachfragen
 
+--COLUMNSTORE---------------------
+----------------------------------
+
 
 --in weniger Dauer mit weniger IO und weniger CPU schneller fertig
 --warum: durch deutlich weniger IO  deutlich weniger CPU,
@@ -208,7 +211,16 @@ Schweiz   SCW
 --neuer DS im HEAP
 
 
---PFLEGE
+--PFLEGE Indizes müssen gewartet werden..
+--wg Fragmentierung oder wg Heap Strukturen im Columnstore bzw
+--Bitmapfilter für gelöschte Datensätze
+--> Rebuild schafft Abhilfe... vs Reorg
+
+--Demodaten für Columnstore und Beobachtung
+
+select * from sys.dm_db_column_store_row_group_physical_stats
+--deltastore zb...
+
 
 USE [Northwind]
 GO
